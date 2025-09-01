@@ -34,7 +34,7 @@ func New(u *url.URL) (waitfor.Resource, error) {
 }
 
 func (s *MySQL) Test(ctx context.Context) error {
-	db, err := sql.Open(s.url.Scheme, strings.TrimPrefix(s.url.String(), Scheme+"://"))
+	db, err := sql.Open("mysql", strings.TrimPrefix(s.url.String(), Scheme+"://"))
 
 	if err != nil {
 		return err
